@@ -8,5 +8,14 @@
 
     <p>GitHub Account: {{ github }}</p>
 
+
+
+    <ul> Titles and Grades:
+        {% for item in project_grade %}
+            <li> {{ item[0] }}: {{ item[1] }} </li>
+        {% endfor %}
+        </ul>
+        
+
 </body>
 </html>

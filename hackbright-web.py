@@ -8,13 +8,16 @@ app = Flask(__name__)
 @app.route("/student")
 def get_student():
     """Show information about a student."""
-    
-    github = request.args.get('github', 'jhacks')
+    #why do we need a placeholder for the gthub name?
+    github = request.args.get('github')
     first, last, github = hackbright.get_student_by_github(github)
+    project_grade = hackbright.get_grades_by_github(github)
     html = render_template("student_info.html", 
                             first=first,
                             last=last,
-                            github=github)
+                            github=github,
+                            project_grade=project_grade,    
+                            )
     return html
     # return "%s is the GitHub account for %s %s" % (github, first, last)
 
